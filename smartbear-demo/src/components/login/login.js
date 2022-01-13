@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import PropTypes from 'prop-types';
 
-export default function login({ setToken }) {
+export default function Login({ setToken }) {
     const [username, setUserName] = useState();
     const [password, setPassword] = useState();
   
@@ -32,6 +32,6 @@ export default function login({ setToken }) {
         </>
     );
 }
-login.propTypes = {
+Login.propTypes = {
     setToken: PropTypes.func.isRequired
 }

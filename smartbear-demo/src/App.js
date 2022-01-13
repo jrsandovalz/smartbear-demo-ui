@@ -1,4 +1,4 @@
-import Login from './components/login/login'
+import Login from './components/login/Login'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import React, { useState } from 'react';
 
@@ -8,17 +8,11 @@ function App() {
   if (!token) {
     return <Login setToken={setToken} />
   }
-  
+
   return (
-    <div className="App">
+    <div className="container">
       <header className="App-header">
       </header>
-      <BrowserRouter>
-        <Switch>
-          <Route path="/dashboard">
-          </Route>
-        </Switch>
-      </BrowserRouter>
 
     </div>
   );
