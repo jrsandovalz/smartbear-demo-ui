@@ -1,4 +1,4 @@
-import Login from './components/login/Login'
+import Login from './components/login/LoginSmart'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import React, { useState } from 'react';
 
