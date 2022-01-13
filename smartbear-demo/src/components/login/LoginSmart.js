@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
+import Container from 'react-bootstrap/Container'
 import PropTypes from 'prop-types';
 
 export default function Login({ setToken }) {
@@ -8,13 +9,12 @@ export default function Login({ setToken }) {
     const [password, setPassword] = useState();
   
     const handleSubmit = async e => {
-      e.preventDefault();
       setToken("abc");
     }
   
 
     return (
-        <>
+        <Container>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicUsername">
                     <Form.Label>Username</Form.Label>
@@ -29,7 +29,7 @@ export default function Login({ setToken }) {
                     Submit
                 </Button>
             </Form>
-        </>
+        </Container>
     );
 }
 Login.propTypes = {
