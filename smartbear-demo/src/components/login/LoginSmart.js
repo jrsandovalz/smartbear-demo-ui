@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Container from 'react-bootstrap/Container'
 import PropTypes from 'prop-types';
+import "./login.css"
 
 export default function Login({ setToken }) {
     const [username, setUserName] = useState();
@@ -14,7 +15,7 @@ export default function Login({ setToken }) {
   
 
     return (
-        <Container>
+        <Container className='login-container'>
             <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3" controlId="formBasicUsername">
                     <Form.Label>Username</Form.Label>
