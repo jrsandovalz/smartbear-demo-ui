@@ -1,5 +1,8 @@
+import Header from '../shared/Header'
 export default function Dashboard() {
 return (
-    <div>Hola Mundo</div>
+    <div>
+        <Header></Header>
+    </div>
 )
 }
