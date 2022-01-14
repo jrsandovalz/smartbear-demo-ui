@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button'
 import Form from 'react-bootstrap/Form'
 import Container from 'react-bootstrap/Container'
 import PropTypes from 'prop-types'
+import axios from 'axios'
 
 import "./login.css"
 
@@ -12,8 +13,18 @@ export default function Login({ setToken }) {
 
     const handleSubmit = async e => {
         e.preventDefault();
-        setToken("abc");
-        window.location.replace('/');
+        var data = {
+            username = username,
+            password = password
+        }
+        axios.post('url',data).then(res => {
+            if (res.status == 200) {
+                setToken(res.data);
+                window.location.replace('/');
+            } else {
+                alert('Authentication error');
+            }
+        });
     }
 
 
