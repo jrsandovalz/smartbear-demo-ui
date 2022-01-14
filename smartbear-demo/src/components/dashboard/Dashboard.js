@@ -1,5 +1,6 @@
 export default function Dashboard() {
 return (
-    <div>Hola Mundo</div>
+    <div>
+    </div>
 )
 }
