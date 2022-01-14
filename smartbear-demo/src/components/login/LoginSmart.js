@@ -14,17 +14,20 @@ export default function Login({ setToken }) {
     const handleSubmit = async e => {
         e.preventDefault();
         var data = {
-            username = username,
-            password = password
+            email: username,
+            password: password
         }
-        axios.post('url',data).then(res => {
-            if (res.status == 200) {
-                setToken(res.data);
-                window.location.replace('/');
-            } else {
-                alert('Authentication error');
-            }
-        });
+        try 
+        {
+            await axios.post('http://smart-LoadB-C9OS8SWRFGUW-2ad6b9e4e4391bc3.elb.us-east-1.amazonaws.com:3000/auth/login', data).then((res) => {
+            setToken(res.data.accessToken);
+            window.location.replace('/');
+        })
+        }
+        catch (error) {
+            alert('Authentication failed');
+            window.location.replace('/');            
+        }
     }
 
 
@@ -32,13 +35,13 @@ export default function Login({ setToken }) {
         <Container className='login-container'>
             <Form onSubmit={handleSubmit} className='d-grid gap-2'>
                 <Form.Group className="mb-3" controlId="formBasicUsername">
-                    <Form.Control type="text" placeholder="Username" onChange={e => setUserName(e.target.value)} />
+                    <Form.Control type="email" placeholder="Email" onChange={e => setUserName(e.target.value)} />
                 </Form.Group>
 
                 <Form.Group className="mb-3" controlId="formBasicPassword">
                     <Form.Control type="password" placeholder="Password" onChange={e => setPassword(e.target.value)} />
                 </Form.Group>
-                <Button variant="primary" type="submit" size='lg'>
+                <Button variant="primary" type="submit" size='lg' disabled={!username}>
                     Log In
                 </Button>
             </Form>
